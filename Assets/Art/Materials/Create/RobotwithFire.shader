@@ -65,7 +65,7 @@ Shader "Custom/RobotwithFire"
 
         void vert (inout appdata_full v)
         {  
-            v.vertex.xyz=v.vertex.xyz+v.normal.xyz*_Cut*0.005f;
+            v.vertex.xyz=v.vertex.xyz+v.normal.xyz*_Cut*0.008f;
 
         }
 

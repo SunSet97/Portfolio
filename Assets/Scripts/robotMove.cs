@@ -68,11 +68,11 @@ public class robotMove : MonoBehaviour
     }
     void CameraDistanceCtrl()
     {
-        Camera.main.transform.localPosition += new Vector3(0, 0, Input.GetAxisRaw("Mouse ScrollWheel") * 2.0f); //휠로 카메라의 거리를 조절한다.
+        Camera.main.transform.localPosition += new Vector3(0, 0, Input.GetAxisRaw("Mouse ScrollWheel") * 1.0f); //휠로 카메라의 거리를 조절한다.
         if (-1 < Camera.main.transform.localPosition.z)
-            Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, -1);    //최대로 가까운 수치
+            Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, -2);    //최대로 가까운 수치
         else if (Camera.main.transform.localPosition.z < -5)
-            Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, -5);    //최대로 먼 수치
+            Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, -8);    //최대로 먼 수치
     }
     void MoveCalc(float ratio)
     {
