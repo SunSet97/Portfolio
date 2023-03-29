@@ -36,13 +36,15 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ButtonEditor.cs" />
      <Compile Include="Assets\Scripts\robotMove.cs" />
+     <Compile Include="Assets\Scripts\ControlRobot.cs" />
      <Compile Include="Assets\Scripts\doorOpen.cs" />
      <Compile Include="Assets\Resources\Sci Fi Modular Pack\Scripts\CameraController.cs" />
-     <Compile Include="Assets\Scripts\ControlRobot.cs" />
-     <Compile Include="Assets\Scripts\ButtonEditor.cs" />
+     <None Include="Assets\Art\Materials\Create\Robot 1.shader" />
      <None Include="Assets\Thrid Party\Asset_Bought\PolygonNature\Shaders\SyntyStudios_LOD.shader" />
      <None Include="Assets\Art\Materials\Toon\Toon_background.shader" />
+     <None Include="Assets\Art\Materials\Create\RobotwithFire.shader" />
      <None Include="Assets\Thrid Party\Asset_Bought\PolygonNature\Shaders\SyntyStudios_Trees.shader" />
      <None Include="Assets\Art\Materials\Create\Robot.shader" />
      <None Include="Assets\Art\Materials\Toon\ToonFresnel.shader" />
