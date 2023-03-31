@@ -12,10 +12,16 @@ public class ControlRobot : MonoBehaviour
     public float coolTime=10f;
     public bool Power=false;
     private Animator RobotAnim;
+    [SerializeField] private ParticleSystem fireVFX;
+    [SerializeField] private ParticleSystem smokeVFX;
+    // [SerializeField] private Animator fireAnimator;
+    // [SerializeField] private Animator smokeAnimator;
     [Range(0,1)]public float Dissolve;
     void Start()
     {
         RobotAnim= Robot.GetComponent<Animator>();
+        // fireAnimator=Robot.GetComponent<Animator>();
+        // smokeAnimator=Robot.GetComponent<Animator>();
         shaderLength=_Mshaders.Length;
     
     }
@@ -38,6 +44,8 @@ public class ControlRobot : MonoBehaviour
     public void PowerUp()
     {
         RobotAnim.SetTrigger("PowerUp");
+        fireVFX.Play();
+        // fireAnimator.SetTrigger("PowerUp");
         Debug.Log("Power UP!");
         StartCoroutine(dissolveShaderplus());
         
@@ -68,24 +76,31 @@ public class ControlRobot : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(10f);
-        StartCoroutine(dissolveShaderDiminish());
+        StartCoroutine(dissolveShaderDiminish(Power));
     }
 
-    IEnumerator dissolveShaderDiminish()
+    IEnumerator dissolveShaderDiminish(bool Power)
     {
+        Power=false;
         Debug.Log("Start Dissolve Diminish");
         float _time=2f;
         float value=1;
-        while(_time>0f)
-        {
-            _time-=0.01f;
-            value=_time/2;
-            for(int i= 0; i<shaderLength;i++)
+        smokeVFX.Play();
+        // smokeAnimator.SetBool("Power",Power);
+        if(Power==false)
+        {   
+            while(_time>0f)
             {
-                _Mshaders[i].GetComponent<Renderer>().material.SetFloat("_Cut",value);
-            }
-            yield return null;
+                _time-=0.01f;
+                value=_time/2;
+                for(int i= 0; i<shaderLength;i++)
+                {
+                    _Mshaders[i].GetComponent<Renderer>().material.SetFloat("_Cut",value);
+                }
+                yield return null;
+            }    
         }
+        
         
 
     }

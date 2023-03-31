@@ -12,6 +12,7 @@ public class robotMove : MonoBehaviour
     Transform model;
 
     private Animator robotAnimator;
+
     private CharacterController RobotController;
     //private Transform robotTransform;
     
