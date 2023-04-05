@@ -24,9 +24,9 @@ public class ButtonEditor : Editor
         
         if(GUILayout.Button("Power Up",GUILayout.Width(120),GUILayout.Height(30)))
         {
-            RobotControl.Power=true;
+
             RobotControl.PowerUp();
-            
+
         }
         GUILayout.FlexibleSpace();
         EditorGUILayout.EndHorizontal();

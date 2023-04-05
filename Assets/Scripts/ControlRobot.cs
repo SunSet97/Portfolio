@@ -20,8 +20,6 @@ public class ControlRobot : MonoBehaviour
     void Start()
     {
         RobotAnim= Robot.GetComponent<Animator>();
-        // fireAnimator=Robot.GetComponent<Animator>();
-        // smokeAnimator=Robot.GetComponent<Animator>();
         shaderLength=_Mshaders.Length;
     
     }
@@ -43,6 +41,7 @@ public class ControlRobot : MonoBehaviour
     }
     public void PowerUp()
     {
+        Power=true;
         RobotAnim.SetTrigger("PowerUp");
         fireVFX.Play();
         // fireAnimator.SetTrigger("PowerUp");
@@ -75,7 +74,8 @@ public class ControlRobot : MonoBehaviour
                 yield return null;
             }
         }
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(2f);
+        smokeVFX.Play();
         StartCoroutine(dissolveShaderDiminish(Power));
     }
 
@@ -85,13 +85,12 @@ public class ControlRobot : MonoBehaviour
         Debug.Log("Start Dissolve Diminish");
         float _time=2f;
         float value=1;
-        smokeVFX.Play();
         // smokeAnimator.SetBool("Power",Power);
         if(Power==false)
         {   
             while(_time>0f)
             {
-                _time-=0.01f;
+                _time-=0.03f;
                 value=_time/2;
                 for(int i= 0; i<shaderLength;i++)
                 {
